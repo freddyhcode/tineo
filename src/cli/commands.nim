@@ -1,4 +1,5 @@
 import std/os
+import std/strutils
 
 import ../tineo/ast
 import ../tineo/lexer
@@ -13,7 +14,7 @@ import ./debug
 
 const
   AppName = "tineo"
-  AppVersion = "0.1.0"
+  AppVersion = "0.1.1"
   AppAuthor = "freddyhcode"
 
 proc printVersion() =
@@ -67,7 +68,7 @@ proc run*() =
   let args = commandLineParams()
 
   if args.len == 0:
-    printUsage()
+    printHelp()
     return
 
   if args[0] in ["-h", "--help"]:
@@ -78,7 +79,7 @@ proc run*() =
     printVersion()
     return
 
-  if args.len < 1 or args.len > 2:
+  if args.len > 2:
     printUsage()
     return
 
@@ -86,6 +87,10 @@ proc run*() =
 
   if not fileExists(inputPath):
     echo "Error: file not found '", inputPath, "'."
+    return
+
+  if inputPath.splitFile().ext.toLowerAscii() != ".sql":
+    echo "Error: input file must have a '.sql' extension."
     return
 
   let schemaName = inputPath.extractFilename().splitFile().name
@@ -110,9 +115,7 @@ proc run*() =
 
   of "-mdt", "--markdown-tree":
     let schema = parseFile(inputPath)
-    let outputPath =
-      inputPath.splitFile().dir /
-      (schemaName & "-tree.md")
+    let outputPath = inputPath.splitFile().dir / (schemaName & "-tree.md")
 
     writeFile(
       outputPath,

@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.1.1"
 author        = "freddyhcode"
 description   = "A native CLI tool written in Nim for analyzing SQL DDL schema definitions and generating documentation."
 license       = "MIT"
