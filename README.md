@@ -45,12 +45,7 @@ SchemaDocs soporta actualmente un subconjunto de **SQL DDL** enfocado en `CREATE
 - `ON DELETE`
 - `ON UPDATE`
 - `CASCADE`
-
-También soporta claves primarias definidas a nivel de tabla:
-
-```sql
-PRIMARY KEY (column1, column2)
-```
+- `PRIMARY KEY (column1, column2)` — Claves primarias definidas a nivel de tabla.
 
 > [!IMPORTANT]
 > SchemaDocs no pretende soportar SQL completo. Otras características de DDL todavía no forman parte del parser, como `ALTER TABLE`, `DROP TABLE`, `CREATE DATABASE`, `USE`, `CREATE INDEX` y `CHECK`.
