@@ -36,7 +36,7 @@ Tineo soporta actualmente un subconjunto de **SQL DDL**.
 - `NOT NULL`
 - `UNIQUE`
 - `DEFAULT`
-- `AUTO_INCREMENT`
+- `AUTO_INCREMENT` / `AUTOINCREMENT`
 - `CONSTRAINT`
 
 ### Relaciones
