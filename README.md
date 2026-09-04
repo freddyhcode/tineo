@@ -18,7 +18,7 @@ Una herramienta CLI nativa escrita en Nim para analizar definiciones de esquemas
 
 ## SQL soportado
 
-SchemaDocs soporta actualmente un subconjunto de **SQL DDL** enfocado en `CREATE TABLE`.
+Tineo soporta actualmente un subconjunto de **SQL DDL**.
 
 ### Tipos
 
@@ -48,7 +48,7 @@ SchemaDocs soporta actualmente un subconjunto de **SQL DDL** enfocado en `CREATE
 - `PRIMARY KEY (column1, column2)` — Claves primarias definidas a nivel de tabla.
 
 > [!IMPORTANT]
-> SchemaDocs no pretende soportar SQL completo. Otras características de DDL todavía no forman parte del parser, como `ALTER TABLE`, `DROP TABLE`, `CREATE DATABASE`, `USE`, `CREATE INDEX` y `CHECK`.
+> Tineo no pretende soportar SQL completo. Otras características de DDL todavía no forman parte del parser, como `ALTER TABLE`, `DROP TABLE`, `CREATE DATABASE`, `USE`, `CREATE INDEX` y `CHECK`.
 >
 > Algunas acciones y formas de restricciones de claves foráneas tampoco están soportadas actualmente, como `SET NULL`, `SET DEFAULT`, `NO ACTION` y claves foráneas compuestas.
 >
@@ -65,18 +65,18 @@ El ejecutable se genera en `bin/release`.
 ## Uso
 
 ```text
-schemadocs <file> [options]
+tineo <file> [options]
 ```
 
-| Opción                   | Descripción                          |
-| ------------------------ | ------------------------------------ |
-| `schemadocs <file>`      | Muestra el esquema en forma de árbol |
-| `schemadocs <file> -md`  | Genera tablas en Markdown            |
-| `schemadocs <file> -mdt` | Genera un árbol en Markdown          |
-| `schemadocs <file> -mmd` | Genera un diagrama ER con Mermaid    |
-| `schemadocs <file> -d`   | Muestra los tokens y el AST          |
-| `schemadocs -h`          | Muestra la ayuda                     |
-| `schemadocs -v`          | Muestra la información de versión    |
+| Opción              | Descripción                          |
+| ------------------- | ------------------------------------ |
+| `tineo <file>`      | Muestra el esquema en forma de árbol |
+| `tineo <file> -md`  | Genera tablas en Markdown            |
+| `tineo <file> -mdt` | Genera un árbol en Markdown          |
+| `tineo <file> -mmd` | Genera un diagrama ER con Mermaid    |
+| `tineo <file> -d`   | Muestra los tokens y el AST          |
+| `tineo -h`          | Muestra la ayuda                     |
+| `tineo -v`          | Muestra la información de versión    |
 
 ## Arquitectura
 
