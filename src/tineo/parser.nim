@@ -44,7 +44,8 @@ proc expectKeyword*(parser: var Parser, value: string) =
 
   discard parser.advance()
 
-proc parseColumn*(parser: var Parser): Column =
+proc parserColumn*(parser: var Parser): Column =
+  
   let nameToken = parser.advance()
 
   if nameToken.kind != tkIdentifier:
@@ -273,7 +274,7 @@ proc parseTable*(parser: var Parser): Table =
       parser.expect(tkSymbol, ")")
 
     else:
-      columns.add(parser.parseColumn())
+      columns.add(parser.parserColumn())
 
     if parser.currentToken().kind == tkSymbol and
       parser.currentToken().value == ",":

@@ -5,6 +5,7 @@ type
     tkType
     tkSymbol
     tkNumber
+    tkString
     tkEOF
 
   Token* = object

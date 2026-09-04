@@ -64,6 +64,19 @@ proc readNumber*(lexer: var Lexer): string =
 proc readSymbol*(lexer: var Lexer): char =
   return lexer.advance()
 
+proc readString*(lexer: var Lexer): string =
+  discard lexer.advance()
+
+  var value = ""
+
+  while lexer.hasNext() and lexer.currentChar() != '\'':
+    value.add(lexer.advance())
+
+  if lexer.hasNext():
+    discard lexer.advance()
+
+  return value
+
 proc readNext*(lexer: var Lexer): Token =
   lexer.skipWhitespace()
 
@@ -71,6 +84,12 @@ proc readNext*(lexer: var Lexer): Token =
     return Token(
       kind: tkEOF,
       value: ""
+    )
+
+  if lexer.currentChar() == '\'':
+    return Token(
+      kind: tkString,
+      value: lexer.readString()
     )
 
   if isLetter(lexer.currentChar()):
